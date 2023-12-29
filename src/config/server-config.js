@@ -6,5 +6,5 @@ require('dotenv').config({
 });
 
 module.exports = {
-    MONGOURI : process.env.MONGOURI
+    MONGOURI : process.env.MONGOURI,
 };

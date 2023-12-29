@@ -1,4 +1,3 @@
-const { ObjectId } = require('bson');
 const mongoose = require('mongoose');
 
 const tweetSchema = new mongoose.Schema({
@@ -12,7 +11,7 @@ const tweetSchema = new mongoose.Schema({
         type: Number,
     },
     comment : {
-        type: ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
     },
 
 });
