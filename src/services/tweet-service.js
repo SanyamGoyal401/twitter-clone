@@ -16,7 +16,7 @@ class TweetService{
         //store hashtag
         const existingTags = await this.hashtagRepository.getHashtagByName(tags);
         const textOfPresentTags = existingTags.map(tags=>tags.text);
-        const newTags = tags.filter(tag=> !textOfPresentTags.includes(tag));
+        let newTags = tags.filter(tag=> !textOfPresentTags.includes(tag));
         newTags = newTags.map(tag=>{
             return {
                 text : tag, 
@@ -32,7 +32,7 @@ class TweetService{
         return tweet;
     }
     async getTweet(tweetId){
-        const tweet = await this.hashtagRepository.findById(tweetId);
+        const tweet = await this.tweetRepository.findById(tweetId);
         return tweet;
     }
 }

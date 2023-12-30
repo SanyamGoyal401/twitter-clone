@@ -3,7 +3,6 @@ class CrudRepository {
         this.model = model
     }
 
-
     async create(data){
         try{
             const response = await this.model.create(data);
@@ -38,9 +37,20 @@ class CrudRepository {
         }
     }
 
-    async deleteOne(id){
+    async delete(id){
         try{
-            const response = await this.model.deleteOne({_id: id});
+            const response = await this.model.findByIdAndDelete(id);
+            return response;
+        }
+        catch(error){
+            console.log(error);
+            throw error;
+        }
+    }
+
+    async update(id, data){
+        try{
+            const response = await this.model.findByIdAndUpdate(id, data, {new: true});
             return response;
         }
         catch(error){

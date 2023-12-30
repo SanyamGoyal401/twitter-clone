@@ -5,13 +5,23 @@ const tweetSchema = new mongoose.Schema({
         type: String,
     },
     likes : {
-        type: Number,
+        type: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Like',
+            }
+        ],
     },
     noOfRetweets : {
         type: Number,
     },
     comment : {
-        type: mongoose.Schema.Types.ObjectId,
+        type: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Comment',
+            }
+        ],
     },
 
 });
